@@ -1,0 +1,95 @@
+﻿<Window x:Class="mvmm_zadanie_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mvmm_zadanie_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Text="Nazwa:"
+            FontWeight="DemiBold"
+            FontSize="19"
+            TextAlignment="Left"
+            VerticalAlignment="Center"
+            />
+        <TextBox
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            />
+        <CheckBox
+            Grid.Column="4"
+            Content="Edytuj"
+            IsEnabled="{Binding czEdycja}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="14"
+            />
+        <Button
+             Grid.Column="5"
+            Content="Dodaj"
+            FontSize="20"
+        />
+        <DataGrid ItemsSource="{Binding Przedmioty}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nazwa"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Style="{Binding czyEdycja}" Grid.Row="1" Grid.Column="3" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Text="Tryb Edycji"
+                FontSize="25"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Calibri"/>
+            <TextBlock
+                Grid.Row="1"
+                Text="Nowa nazwa:"
+                FontSize="14"
+                TextAlignment="Left"
+                VerticalAlignment="Center"
+                Width="100" Margin="10,0,290,0"
+                />
+            <TextBox 
+                Width="300"
+                Grid.Row="1"
+                Height="30" Margin="100,24,0,24"
+                />
+            <Button
+                Grid.Row="2"
+                Content="Zapisz Zmiany"
+                Width="100"
+                Height="40" Margin="60,77,240,118"
+                IsEnabled="{Binding czyMoznaZapisacZmiany}"
+                />
+            <Button
+            Grid.Row="2"
+            Content="Anuluj Zmiany"
+            Width="100"
+            Height="40" Margin="250,77,50,118"
+            />
+            
+        </Grid>
+    </Grid>
+</Window>
